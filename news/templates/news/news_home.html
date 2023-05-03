@@ -1,0 +1,25 @@
+{% extends 'av/base.html' %}
+
+{% block title %} Новости {% endblock %}
+
+{% block content %}
+    <div class="Features">
+        <h1> Самые свежие новости </h1>
+
+        {% if news %}
+            {% for el in news %}
+                <div class="alert alert-warning">
+                    <h3>{{ el.title }}</h3>
+                    <div class="column">
+                        <h4>{{ el.anons }}</h4>
+                        <p>{{ el.full_text }}</p>
+                    </div>
+            {% endfor %}
+        {% else %}
+            <p> У вас нет записей! </p>
+        {% endif %}
+
+        <a href="{% url 'create' %}"><button class="btn btn-info"><i class="fas fa-plus-circle">Добавить запись</i></a>
+        {# Комментарий #}
+    </div>
+{% endblock %}

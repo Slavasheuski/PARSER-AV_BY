@@ -1,0 +1,32 @@
+{% extends 'av/base.html' %}
+
+{% block title %} Автомобили {% endblock %}
+
+{% block content %}
+    <div class="Features">
+        <div class="Features">
+            <h4 class="table__header"> Всего в базе {{ total }} автомобилей в возрасте 3-5 лет</h4>
+            <table border="1" text-align=left>
+                <caption> Полный список всех автомобилей </caption>
+                <thead>
+                    <th>Марка</th>
+                    <th>Модель</th>
+                    <th>Год выпуска</th>
+                    <th>Цена</th>
+                    <th>URL адрес</th>
+                </thead>
+                <tbody>
+                    {% for i in items %}
+                        <tr>
+                            <th>{{ i.marka }}</th>
+                            <th>{{ i.model }}</th>
+                            <th>{{ i.year }}</th>
+                            <th>{{ i.price }}</th>
+                            <th><a href="{{ i.url }}" target="_blanc">{{ i.url }}</a></th>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {# Комментарий #}
+    </div>
+{% endblock %}
